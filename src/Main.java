@@ -62,8 +62,8 @@ public class Main {
     В консоль выведите результат операции на каждый год в формате "Год …, численность населения составляет … "
     */
     int countryY = 12_000_000; //численность жителей в стране Y
-    int peopleDeath = 17; //количество смертности в год на 1000 жителей
-    int peopleBorn = 8; //количество рождаемости в год на 1000 жителей
+    int peopleDeath = 8; //количество смертности в год на 1000 жителей
+    int peopleBorn = 17; //количество рождаемости в год на 1000 жителей
     int year = 0; //стартовое значение года
     while (year < 10){
         year++; //увеличиваем год на единицу
@@ -88,11 +88,10 @@ public class Main {
     */
     int moneyVasiliy = 15_000; //сумма ежемесячного вклада Василия
     int month = 0; //начальная переменная для количества месяцев
-    int total = 0; //начальная переменная для суммы накоплений
-    while (total <= 12_000_000) {
+    while (moneyVasiliy <= 12_000_000) {
         month++; //увеличение месяца на едиицу
-        total = (total + moneyVasiliy) + (total / 100 * 7 / 12); //сумма накоплений плюс сумма процентов за месяц
-        System.out.println("Месяц: " + month + ". Сумма накоплений по вкладу: " + total);
+        moneyVasiliy = (moneyVasiliy) + (moneyVasiliy / 100 * 7 ); //сумма накоплений плюс сумма процентов за месяц
+        System.out.println("Месяц: " + month + ". Сумма накоплений по вкладу: " + moneyVasiliy);
     }
     }
     public static void Task5() {
@@ -103,12 +102,11 @@ public class Main {
     */
     int moneyVasiliy = 15_000; //сумма ежемесячного вклада Василия
     int month = 0; //начальная переменная для количества месяцев
-    int total = 0; //начальная переменная для суммы накоплений
-    while (total <= 12_000_000) {
+    while (moneyVasiliy <= 12_000_000) {
         month++; //увеличение месяца на единицу
-        total = (total + moneyVasiliy) + (total / 100 * 7 / 12); //сумма накоплений плюс сумма процентов за месяц
+        moneyVasiliy = (moneyVasiliy) + (moneyVasiliy / 100 * 7 ); //сумма накоплений плюс сумма процентов за месяц
         if (month % 6 == 0){
-            System.out.println("Месяц: " + month + ". Сумма накоплений по вкладу: " + total);
+            System.out.println("Месяц: " + month + ". Сумма накоплений по вкладу: " + moneyVasiliy);
         }
     }
     }
@@ -120,14 +118,13 @@ public class Main {
     Исходная сумма всё так же 15 тысяч рублей, проценты банка – 7% ежемесячно.
     Напишите программу, которая будет выводить Василию сумму его накоплений за следующие каждые полгода в течение 9 лет.
     */
-    int moneyVasiliy = 15_000; //сумма ежемесячного вклада Василия
-    int month = 0; //начальная переменная для количества месяцев
-    int total = 0; //начальная переменная для суммы накоплений
-    while (month <= 12 * 9) {
-        month++; //увеличение месяца на единицу
-        total = (total + moneyVasiliy) + (total / 100 * 7 / 12); //сумма накоплений плюс сумма процентов за месяц
-        if (month % 6 == 0){
-            System.out.println("Месяц: " + month + ". Сумма накоплений по вкладу: " + total);
+        int moneyVasiliy = 15_000; //сумма ежемесячного вклада Василия
+        int month = 0; //начальная переменная для количества месяцев
+        while (month <= 12 * 9) {
+            month++; //увеличение месяца на единицу
+            moneyVasiliy = (moneyVasiliy) + (moneyVasiliy / 100 * 7 ); //сумма накоплений плюс сумма процентов за месяц
+            if (month % 6 == 0) {
+                System.out.println("Месяц: " + month + ". Сумма накоплений по вкладу: " + moneyVasiliy);
             }
         }
     }
@@ -143,13 +140,13 @@ public class Main {
     "Сегодня пятница, ...-е число. Необходимо подготовить отчет."
     В нашем месяце 31 день. В результате у вас должно вывестись от 4 до 5 сообщений с напоминаниями по разным датам.
     */
-    int friday = 6; //число на которое выпадает пятница
-    for (int numberOfMonth = 1; numberOfMonth <= 31; numberOfMonth++){ //количество чисел месяца с 1 по 31
-        if (friday % numberOfMonth == 0) { //если дата пятницы делится без остатка на номер месяца
-            System.out.println("Сегодня пятница, " +friday + " число. Необходимо подготовить отчет");
-            friday += 7; //прибавляем неделю к пятнице, т.к. отчет еженедельный
+        int friday = 6; //число на которое выпадает пятница
+        for (int numberOfMonth = 1; numberOfMonth <= 31; numberOfMonth++) { //количество чисел месяца с 1 по 31
+            if (friday % numberOfMonth == 0) { //если дата пятницы делится без остатка на номер месяца
+                System.out.println("Сегодня пятница, " + friday + " число. Необходимо подготовить отчет");
+                friday += 7; //прибавляем неделю к пятнице, т.к. отчет еженедельный
+            }
         }
-    }
     }
     public static void Task8() {
         System.out.println("\n" + "ДЗ № 3");
@@ -167,12 +164,12 @@ public class Main {
     1975
     2054
     */
-    int currentYear = 2022; //текущий год
-    int yearMinus200 = currentYear - 200; //текущий год + 200
-    int yearPlus100 = currentYear + 100; //текущий год - 100
-    for (int cometYear = 0; cometYear < yearPlus100; cometYear += 79) { //прибавляем 79 лет, пока не достигнут максимальый год
-        if (cometYear > yearMinus200 && cometYear < yearPlus100) { //если год появления кометы вписывается в критерии
-            System.out.println(cometYear);
+        int currentYear = 2022; //текущий год
+        int yearMinus200 = currentYear - 200; //текущий год + 200
+        int yearPlus100 = currentYear + 100; //текущий год - 100
+        for (int cometYear = 0; cometYear < yearPlus100; cometYear += 79) { //прибавляем 79 лет, пока не достигнут максимальый год
+            if (cometYear > yearMinus200 && cometYear < yearPlus100) { //если год появления кометы вписывается в критерии
+                System.out.println(cometYear);
             }
         }
     }
